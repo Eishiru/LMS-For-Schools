@@ -1,0 +1,420 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/stylehome.css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Student Dashboard</h1>
+        </div>
+        <div class="user-info">
+            <div class="avatar">JS</div>
+            <span>{{ request.user.email }}</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="sidebar">
+            <div class="nav-item active" data-tab="overview">
+                <span>📊</span> Overview
+            </div>
+            <div class="nav-item" data-tab="subjects">
+                <span>📚</span> Subjects
+            </div>
+            <div class="nav-item" data-tab="assignments">
+                <span>📝</span> Assignments
+            </div>
+            <div class="nav-item" data-tab="quizzes">
+                <span>🧠</span> Quizzes
+            </div>
+            <div class="nav-item" data-tab="grades">
+                <span>📈</span> Grades
+            </div>
+            <div class="nav-item" data-tab="calendar">
+                <span>📅</span> Calendar
+            </div>
+            <div class="nav-item" data-tab="resources">
+                <span>📁</span> Resources
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <div class="dashboard-header">
+                <h2>Dashboard Overview</h2>
+                <div class="date-display" id="current-date">Monday, September 12, 2023</div>
+            </div>
+
+            <!-- Overview Tab -->
+            <div class="tab-content active" id="overview">
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Subjects</div>
+                            <div class="card-icon subjects">📚</div>
+                        </div>
+                        <p>You are enrolled in 6 subjects</p>
+                        <div class="progress-bar">
+                            <div class="progress subjects"></div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Assignments</div>
+                            <div class="card-icon assignments">📝</div>
+                        </div>
+                        <p>3 assignments due this week</p>
+                        <div class="progress-bar">
+                            <div class="progress assignments"></div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Quizzes</div>
+                            <div class="card-icon quizzes">🧠</div>
+                        </div>
+                        <p>1 quiz scheduled for Friday</p>
+                        <div class="progress-bar">
+                            <div class="progress quizzes"></div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Current GPA</div>
+                            <div class="card-icon grades">📈</div>
+                        </div>
+                        <p>3.75 / 4.0</p>
+                        <div class="progress-bar">
+                            <div class="progress grades" style="width: 94%; background-color: #ffa94d;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Upcoming Deadlines</div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Task</th>
+                                <th>Subject</th>
+                                <th>Due Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Research Paper</td>
+                                <td>English</td>
+                                <td>Sep 15, 2023</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td>Algebra Problems</td>
+                                <td>Mathematics</td>
+                                <td>Sep 18, 2023</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td>Lab Report</td>
+                                <td>Chemistry</td>
+                                <td>Sep 20, 2023</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Subjects Tab -->
+            <div class="tab-content" id="subjects">
+
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Mathematics</div>
+                            <div class="card-icon subjects">M</div>
+                        </div>
+                        <p>Teacher: Dr. Johnson</p>
+                        <p>Room: 204</p>
+                        <p>Schedule: Mon, Wed, Fri - 9:00 AM</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">English Literature</div>
+                            <div class="card-icon subjects">E</div>
+                        </div>
+                        <p>Teacher: Ms. Parker</p>
+                        <p>Room: 112</p>
+                        <p>Schedule: Tue, Thu - 10:30 AM</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Chemistry</div>
+                            <div class="card-icon subjects">C</div>
+                        </div>
+                        <p>Teacher: Mr. Davis</p>
+                        <p>Room: Lab 3</p>
+                        <p>Schedule: Mon, Wed - 1:00 PM</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">History</div>
+                            <div class="card-icon subjects">H</div>
+                        </div>
+                        <p>Teacher: Mrs. Thompson</p>
+                        <p>Room: 105</p>
+                        <p>Schedule: Tue, Thu - 2:15 PM</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Computer Science</div>
+                            <div class="card-icon subjects">CS</div>
+                        </div>
+                        <p>Teacher: Mr. Rodriguez</p>
+                        <p>Room: Computer Lab</p>
+                        <p>Schedule: Fri - 11:00 AM</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Physical Education</div>
+                            <div class="card-icon subjects">PE</div>
+                        </div>
+                        <p>Teacher: Coach Miller</p>
+                        <p>Room: Gym</p>
+                        <p>Schedule: Wed - 3:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assignments Tab -->
+            <div class="tab-content" id="assignments">
+            
+                <div class="card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Assignment</th>
+                                <th>Subject</th>
+                                <th>Due Date</th>
+                                <th>Status</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Research Paper</td>
+                                <td>English</td>
+                                <td>Sep 15, 2023</td>
+                                <td><span class="status pending">Pending</span></td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Algebra Problems</td>
+                                <td>Mathematics</td>
+                                <td>Sep 18, 2023</td>
+                                <td><span class="status pending">Pending</span></td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Lab Report</td>
+                                <td>Chemistry</td>
+                                <td>Sep 20, 2023</td>
+                                <td><span class="status pending">Pending</span></td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>World War II Essay</td>
+                                <td>History</td>
+                                <td>Sep 10, 2023</td>
+                                <td><span class="status completed">Completed</span></td>
+                                <td>92%</td>
+                            </tr>
+                            <tr>
+                                <td>Programming Project</td>
+                                <td>Computer Science</td>
+                                <td>Sep 5, 2023</td>
+                                <td><span class="status completed">Completed</span></td>
+                                <td>88%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Quizzes Tab -->
+            <div class="tab-content" id="quizzes">
+        
+                <div class="card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Quiz/Test</th>
+                                <th>Subject</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Algebra Quiz</td>
+                                <td>Mathematics</td>
+                                <td>Sep 22, 2023</td>
+                                <td><span class="status pending">Upcoming</span></td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Chemistry Test</td>
+                                <td>Chemistry</td>
+                                <td>Sep 25, 2023</td>
+                                <td><span class="status pending">Upcoming</span></td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Literature Quiz</td>
+                                <td>English</td>
+                                <td>Sep 8, 2023</td>
+                                <td><span class="status completed">Completed</span></td>
+                                <td>85%</td>
+                            </tr>
+                            <tr>
+                                <td>History Midterm</td>
+                                <td>History</td>
+                                <td>Sep 1, 2023</td>
+                                <td><span class="status completed">Completed</span></td>
+                                <td>90%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Grades Tab -->
+            <div class="tab-content" id="grades">
+
+                <div class="card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Subject</th>
+                                <th>Assignments</th>
+                                <th>Quizzes</th>
+                                <th>Tests</th>
+                                <th>Overall Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mathematics</td>
+                                <td>88%</td>
+                                <td>92%</td>
+                                <td>85%</td>
+                                <td>88%</td>
+                            </tr>
+                            <tr>
+                                <td>English</td>
+                                <td>90%</td>
+                                <td>85%</td>
+                                <td>92%</td>
+                                <td>89%</td>
+                            </tr>
+                            <tr>
+                                <td>Chemistry</td>
+                                <td>85%</td>
+                                <td>88%</td>
+                                <td>90%</td>
+                                <td>88%</td>
+                            </tr>
+                            <tr>
+                                <td>History</td>
+                                <td>92%</td>
+                                <td>87%</td>
+                                <td>90%</td>
+                                <td>90%</td>
+                            </tr>
+                            <tr>
+                                <td>Computer Science</td>
+                                <td>95%</td>
+                                <td>90%</td>
+                                <td>88%</td>
+                                <td>91%</td>
+                            </tr>
+                            <tr>
+                                <td>Physical Education</td>
+                                <td>100%</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>100%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Calendar Tab -->
+            <div class="tab-content" id="calendar">
+                
+                <div class="card">
+                    <p>Calendar view would be implemented here with important dates, deadlines, and events.</p>
+                    <!-- In a real implementation, this would be an interactive calendar component -->
+                </div>
+            </div>
+
+            <!-- Resources Tab -->
+            <div class="tab-content" id="resources">
+                
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Mathematics Resources</div>
+                        </div>
+                        <ul>
+                            <li>Algebra Textbook (PDF)</li>
+                            <li>Practice Problems</li>
+                            <li>Video Tutorials</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">English Resources</div>
+                        </div>
+                        <ul>
+                            <li>Literature Reading List</li>
+                            <li>Writing Guidelines</li>
+                            <li>Grammar Exercises</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Science Resources</div>
+                        </div>
+                        <ul>
+                            <li>Lab Safety Guidelines</li>
+                            <li>Chemistry Reference Tables</li>
+                            <li>Interactive Simulations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+body{
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    position: relative;
+    width: 1440px;
+    height: 1024px;   
+}
+
+.picture{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+    width: 592px;
+    height: 1024px;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 150px 0px 0px 121px;
+    width: 848px;
+    height: 454px;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.login .text{
+    width: 94px;
+    height: 48px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 48px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #333333;
+}
+
+.Email .header, .Password .header{
+    width: 113px;
+    height: 24px;
+    left: 0px;
+    top: 0px;    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;color: #666666;
+}
+
+input{
+    box-sizing: border-box;
+    width: 580px;
+    height: 56px;
+    border: 1px solid rgba(102, 102, 102, 0.35);
+    border-radius: 12px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    padding: 10px;
+}
+
+.btn.login {
+   width: 580px;
+   height: 64px;             
+   background: #2593F3;
+   border-radius: 12px;       
+   font-family: 'Poppins';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 18px;
+   line-height: 24px;
+   color: #000000;
+   text-decoration: none;
+   border: none;
+   margin-top: 20px;          
+   box-sizing: border-box;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 0px;
+   flex: none;
+   order: 3;
+   flex-grow: 0;
+}

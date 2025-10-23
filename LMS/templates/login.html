@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS-Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+     {% if messages %}
+            <div class="message">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    <section class="picture">
+            <img src="{% static 'img\Picture.png' %}">
+    </section>
+    <form method="POST">
+            {% csrf_token %}
+    <section class="login">
+        <div class="text">
+            <p>Log in</p>
+        </div>
+        <section class="Email">
+            <div class="header">
+                <p>Email Address</p>
+            </div>
+            <div class="text_field">
+                <input type="email" name="email">
+            </div>
+        </section>
+        <section class="Password">
+            <div class="header">
+                <p>Password</p>
+            </div>
+            <div class="text_field">
+                <input type="password" name="password">
+            </div>
+        </section>
+        <button type="submit" class="btn login">Log in</button>
+    </section>
+    </form>
+</body>
+</html>
