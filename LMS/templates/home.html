@@ -5,98 +5,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'css/stylehome.css' %}" />
 </head>
-<body>
-    <main class="main-content">
-        <div class="mb-4">
-            <h1 class="font-headline text-3xl font-bold" id="welcome-message">Welcome, Juan!</h1>
-            <p class="text-muted-foreground">Here's your academic summary for today.</p>
-        </div>
+<body class="bg-muted/40">
 
-        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <!-- GPA Card -->
-            <div class="card">
-                <div class="card-header flex-row items-center justify-between space-y-0 pb-2">
-                    <h3 class="card-title">Current Average</h3>
-                    <svg class="h-4 w-4 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="M12 2v20"/><path d="M6.5 2a2.5 2.5 0 0 1 0 5H20"/></svg>
-                </div>
-                <div class="card-content">
-                    <div class="text-4xl font-bold font-headline text-primary" id="gpa-value">91.6%</div>
-                    <p class="text-xs text-muted-foreground">Based on completed tasks</p>
-                </div>
-            </div>
+    <div class="flex min-h-screen w-full flex-col">
+        <!-- Simplified Sidebar for layout -->
+        <aside class="fixed hidden sm:flex w-64 flex-col bg-[#111827] text-gray-200 inset-y-0 left-0 border-r border-gray-800">
+             <!-- Sidebar content would go here -->
+        </aside>
 
-            <!-- Enrolled Subjects Card -->
-            <div class="card">
-                <div class="card-header flex-row items-center justify-between space-y-0 pb-2">
-                    <h3 class="card-title">Enrolled Subjects</h3>
-                    <svg class="h-4 w-4 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <div class="flex flex-col sm:pl-64">
+             <!-- Header -->
+            <header class="sticky top-0 z-10 flex h-16 items-center gap-4 border-b bg-background/80 px-4 backdrop-blur-sm md:px-6">
+                <div class="flex flex-col">
+                    <h1 class="font-headline text-2xl font-semibold text-foreground">Dashboard</h1>
                 </div>
-                <div class="card-content">
-                    <div class="text-4xl font-bold font-headline" id="enrolled-subjects">6</div>
-                    <p class="text-xs text-muted-foreground">Across all semesters</p>
+                <div class="ml-auto">
+                    <!-- Dropdown would go here -->
                 </div>
-            </div>
+            </header>
 
-            <!-- Tasks Completed Card -->
-            <div class="card">
-                <div class="card-header flex-row items-center justify-between space-y-0 pb-2">
-                    <h3 class="card-title">Tasks Completed</h3>
-                    <svg class="h-4 w-4 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            <!-- Main Dashboard Content -->
+            <main class="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
+                <div class="mb-4">
+                    <h1 class="font-headline text-3xl font-bold">Welcome, Juan!</h1>
+                    <p class="text-muted-foreground">Here's your academic summary for today.</p>
                 </div>
-                <div class="card-content">
-                    <div class="text-4xl font-bold font-headline">15</div>
-                    <p class="text-xs text-muted-foreground">You're on a roll!</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
-            <!-- Subjects Overview -->
-            <div class="card lg:col-span-2">
-                <div class="card-header">
-                    <h3 class="font-headline text-2xl font-semibold">Subjects Overview</h3>
-                </div>
-                <div class="card-content">
-                    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3" id="subjects-overview-grid">
-                        <!-- Subject cards will be injected by JS -->
+                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    <!-- GPA Card -->
+                    <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                        <div class="flex flex-col space-y-1.5 p-6">
+                            <div class="flex flex-row items-center justify-between space-y-0 pb-2">
+                                <h3 class="text-sm font-medium">Current Average</h3>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-muted-foreground"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="m4 13.5 4-4 4 4"/><path d="M4 8.5 8 12l4-4"/></svg>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <div class="text-4xl font-bold font-headline text-primary">91.9%</div>
+                            <p class="text-xs text-muted-foreground">Based on completed tasks</p>
+                        </div>
                     </div>
-                    <div class="mt-6 flex justify-end">
-                        <a href="#" class="button">
-                            View All Subjects
-                            <svg class="ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        </a>
+                    <!-- Enrolled Subjects Card -->
+                    <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                        <div class="flex flex-col space-y-1.5 p-6">
+                             <div class="flex flex-row items-center justify-between space-y-0 pb-2">
+                                <h3 class="text-sm font-medium">Enrolled Subjects</h3>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-muted-foreground"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                             </div>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <div class="text-4xl font-bold font-headline">6</div>
+                            <p class="text-xs text-muted-foreground">Across all semesters</p>
+                        </div>
+                    </div>
+                    <!-- Tasks Completed Card -->
+                    <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+                        <div class="flex flex-col space-y-1.5 p-6">
+                            <div class="flex flex-row items-center justify-between space-y-0 pb-2">
+                                <h3 class="text-sm font-medium">Tasks Completed</h3>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-muted-foreground"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <div class="text-4xl font-bold font-headline">15</div>
+                            <p class="text-xs text-muted-foreground">You're on a roll!</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Upcoming Deadlines -->
-            <div class="card lg:col-span-1">
-                <div class="card-header">
-                    <h3 class="font-headline text-2xl font-semibold">Upcoming Deadlines</h3>
-                    <p class="card-description">Don't miss these important dates!</p>
+                <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+                    <!-- Subjects Overview -->
+                    <div class="lg:col-span-2 rounded-lg border bg-card text-card-foreground shadow-sm">
+                        <div class="flex flex-col space-y-1.5 p-6">
+                            <h3 class="font-headline text-2xl font-semibold leading-none tracking-tight">Subjects Overview</h3>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+                                <!-- Subject 1 -->
+                                <div class="rounded-lg border bg-card text-card-foreground shadow-sm flex flex-col">
+                                    <div class="flex flex-row items-center gap-4 space-y-0 p-6 pb-4">
+                                        <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-secondary">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-secondary-foreground"><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/><line x1="12" x2="12" y1="20" y2="12"/><line x1="6" x2="6" y1="12" y2="4"/><line x1="12" x2="12" y1="8" y2="4"/></svg>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-semibold">Mathematics</h3>
+                                            <p class="text-sm text-muted-foreground">Mr. Smith</p>
+                                        </div>
+                                    </div>
+                                    <div class="p-6 pt-0 flex-grow">
+                                        <div class="mb-2 flex justify-between text-sm"><span>Progress</span><span class="font-medium">75%</span></div>
+                                        <div class="h-2 w-full overflow-hidden rounded-full bg-secondary"><div class="h-full w-full flex-1 bg-primary transition-all" style="transform: translateX(-25%);"></div></div>
+                                    </div>
+                                    <div class="border-t p-4 pt-4"><div class="flex justify-between items-center text-sm"><span class="text-muted-foreground">Current Grade</span><span class="font-bold text-lg text-primary">92</span></div></div>
+                                </div>
+                                <!-- Subject 2, 3 etc would follow -->
+                            </div>
+                            <div class="mt-6 flex justify-end">
+                                <a href="#"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">View All Subjects <svg xmlns="http://wwww3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-4 w-4"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Upcoming Deadlines -->
+                    <div class="lg:col-span-1 rounded-lg border bg-card text-card-foreground shadow-sm">
+                        <div class="flex flex-col space-y-1.5 p-6">
+                            <h3 class="font-headline text-2xl font-semibold leading-none tracking-tight">Upcoming Deadlines</h3>
+                            <p class="text-sm text-muted-foreground">Don't miss these important dates!</p>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <table class="w-full caption-bottom text-sm">
+                                <thead class="[&_tr]:border-b">
+                                    <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"><th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Task</th><th class="h-12 px-4 text-right align-middle font-medium text-muted-foreground">Due</th></tr>
+                                </thead>
+                                <tbody class="[&_tr:last-child]:border-0">
+                                    <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"><td class="p-4 align-middle"><div class="font-medium">Algebra II Worksheet</div></td><td class="p-4 align-middle text-right"><span class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80">in 2 days</span></td></tr>
+                                    <!-- More rows would go here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Task</th>
-                                <th class="hidden sm:table-cell">Subject</th>
-                                <th class="text-right">Due</th>
-                            </tr>
-                        </thead>
-                        <tbody id="upcoming-deadlines-body">
-                            <!-- Rows will be injected by JS -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            </main>
         </div>
-    </main>
-    <script src="{% static 'js/script.css' %}"></script>
+    </div>
 </body>
 </html>
