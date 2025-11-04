@@ -1,19 +1,19 @@
-from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from django.contrib import messages
+from django.http import JsonResponse
 
-def home(request):
-    return render(request, 'home.html')
-def login_view(request):
-    if request.method == 'POST':
-        email = request.POST.get('email')
-        password = request.POST.get('password')
+from rest_framework import views
+from rest_framework.response import Response
+from rest_framework_simplejwt.tokens import RefreshToken
 
+class LoginView(views.APIView):
+
+    def post(self, request, *args, **kwargs):
+        email = request.data.get("email")
+        password = request.data.get("password")
         user = authenticate(request, email=email, password=password)
         if user is not None:
-            login(request, user)
-            return redirect('home')
+            token = RefreshToken.for_user(user)
+            return Response({"access": str(token.access_token), "refresh": str(token)})
         else:
-            messages.error(request, 'Invalid email or password')
-            return redirect('login')
-    return render(request, 'login.html')
+            return Response({"error": "Invalid Email or Password"})
+        
