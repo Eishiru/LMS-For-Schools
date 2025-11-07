@@ -136,5 +136,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-AUTH_USER_MODEL = 'LMS.CustomUser'
+AUTH_USER_MODEL = 'LMS.User'
 AUTHENTICATION_BACKENDS = ['LMS.backends.EmailBackend']
