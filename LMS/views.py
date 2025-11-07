@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
-
+from django.contrib import messages
 from rest_framework import views
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -16,4 +16,3 @@ class LoginView(views.APIView):
             return Response({"access": str(token.access_token), "refresh": str(token)})
         else:
             return Response({"error": "Invalid Email or Password"})
-        
